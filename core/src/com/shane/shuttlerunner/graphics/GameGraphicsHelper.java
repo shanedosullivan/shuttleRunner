@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.shane.shuttlerunner.IGraphic;
+import com.shane.shuttlerunner.domain.Spaceship;
 
 public class GameGraphicsHelper {
 	
@@ -16,11 +18,10 @@ public class GameGraphicsHelper {
 	Animation spaceShipAnimation;
 	float spaceShipStateTime = 0;
 	
-	public void draw(SpriteBatch batch){
+	public void draw(SpriteBatch batch, IGraphic spaceship){
 		batch = new SpriteBatch();
-		
-		spaceShipImage = new Texture("spaceShip.png");
-		spaceShipImageRegion = new TextureRegion(spaceShipImage);
+
+		spaceShipImageRegion = new TextureRegion(spaceship.getImage());
 		
 		background1 = new Texture("space.png");
 		backgroundImageRegion = new TextureRegion(background1);
@@ -32,7 +33,7 @@ public class GameGraphicsHelper {
 		
 		batch.begin();
 		batch.draw(backgroundImageRegion, 0, 0);
-		batch.draw(spaceShipAnimation.getKeyFrame(spaceShipStateTime), 0, 0, 50, 60);
+		batch.draw(spaceShipAnimation.getKeyFrame(spaceShipStateTime), spaceship.getPositionVector().x, spaceship.getPositionVector().y, 50, 60);
 		batch.draw(enemy1ImageRegion, 0, 300, 50, 60);
 		batch.end();
 	}
