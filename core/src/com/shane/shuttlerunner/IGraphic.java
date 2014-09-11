@@ -13,6 +13,9 @@ public interface IGraphic {
 
 	public void setPositionVector(Vector2 positionVector);
 
+	public Vector2 getVelocityVector();
+	
+	public void setVelocityVector(Vector2 velocityVector);
 	
 	
 }

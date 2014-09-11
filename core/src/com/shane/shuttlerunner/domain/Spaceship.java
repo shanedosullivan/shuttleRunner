@@ -8,6 +8,9 @@ public class Spaceship implements IGraphic{
 	
 	private float xPosition = 0;
 	private float yPosition = 0;
+	private float xVelocity = 100;
+	private float yVelocity = 0;
+	private Vector2 spaceShipVelocityVector = new Vector2(xVelocity, yVelocity);
 	private Vector2 spaceShipPositionVector = new Vector2(xPosition, yPosition);
 	private Texture spaceShipImage = new Texture("spaceShip.png");
 	
@@ -31,7 +34,14 @@ public class Spaceship implements IGraphic{
 		this.spaceShipPositionVector = positionVector;
 	}
 	
+	@Override
+	public Vector2 getVelocityVector(){
+		return spaceShipVelocityVector;
+	}
 	
-	
+	@Override
+	public void setVelocityVector(Vector2 spaceShipVelocityVector){
+		this.spaceShipVelocityVector = spaceShipVelocityVector;
+	}
 	
 }
